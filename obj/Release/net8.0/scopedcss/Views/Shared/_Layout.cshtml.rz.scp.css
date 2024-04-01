@@ -1,0 +1,68 @@
+/* Please see documentation at https://learn.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+/* Improves navbar readability and alignment */
+.navbar-brand[b-zlvvv8m7u8] {
+    white-space: normal;
+    text-align: center;
+    word-break: break-all;
+    /* black navbar */
+    background-color: black;
+    color: white;
+}
+
+/* Sets a consistent color theme across links */
+a[b-zlvvv8m7u8], a:hover[b-zlvvv8m7u8], a:focus[b-zlvvv8m7u8], a:active[b-zlvvv8m7u8] {
+    color: #007bcc; /* Slightly brighter blue for better visibility */
+    text-decoration: none; /* Removes underline from links */
+}
+
+/* Ensures primary buttons stand out */
+.btn-primary[b-zlvvv8m7u8] {
+    color: #fff;
+    background-color: #007bcc; /* Uses the same blue theme for consistency */
+    border-color: #006bb1; /* Slightly darker border for depth */
+    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+/* Highlights active navigation link in nav-pills */
+.nav-pills .nav-link.active[b-zlvvv8m7u8], .nav-pills .show > .nav-link[b-zlvvv8m7u8] {
+    color: #fff;
+    background-color: #006bb1; /* Consistent with btn-primary color */
+    border-color: #005da1; /* Slightly darker for distinction */
+}
+
+/* Adds clear divisions between sections */
+.border-top[b-zlvvv8m7u8] {
+    border-top: 1px solid #dee2e6; /* Lighter for a softer look */
+}
+
+.border-bottom[b-zlvvv8m7u8] {
+    border-bottom: 1px solid #dee2e6; /* Consistent with .border-top */
+}
+
+/* Subtle shadow for floating elements */
+.box-shadow[b-zlvvv8m7u8] {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Slightly increased for better visibility */
+}
+
+/* Ensures the accept policy button is clearly visible */
+button.accept-policy[b-zlvvv8m7u8] {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #fff; /* White text for readability */
+    background-color: #007bcc; /* Matches the link color */
+    border: 1px solid transparent; /* Removes border for a button-like appearance */
+    padding: 0.375rem 0.75rem; /* Standard padding */
+    border-radius: 0.25rem; /* Rounded corners */
+    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.footer[b-zlvvv8m7u8] {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    white-space: nowrap;
+    line-height: 60px;
+}
+
