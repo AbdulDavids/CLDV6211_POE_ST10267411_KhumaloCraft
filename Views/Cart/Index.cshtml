@@ -1,0 +1,49 @@
+﻿@model CLDV6211_POE_ST10267411_KhumaloCraft.Models.Order
+
+@{
+    ViewData["Title"] = "My Cart";
+    decimal totalPrice = Model?.OrderDetails?.Sum(od => od.TotalPrice) ?? 0;
+}
+
+<h2>My Cart</h2>
+
+@if (Model != null && Model.OrderDetails.Any())
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th>Total</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.OrderDetails)
+            {
+                <tr>
+                    <td>@item.Product.ProductName</td>
+                    <td>@item.Quantity</td>
+                    <td>@item.Product.Price.ToString("C")</td>
+                    <td>@item.TotalPrice.ToString("C")</td>
+                    <td>
+                        <form asp-action="DeleteFromCart" method="post">
+                            <input type="hidden" name="orderDetailId" value="@item.OrderDetailID" />
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <div class="text-right">
+        <h4>Total Price: @totalPrice.ToString("C")</h4>
+    </div>
+}
+else
+{
+    <p>Your cart is empty.</p>
+}
+
+<a asp-action="Index" asp-controller="Product" class="btn btn-primary">Continue Shopping</a>

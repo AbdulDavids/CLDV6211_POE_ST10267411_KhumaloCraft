@@ -1,0 +1,83 @@
+﻿@model CLDV6211_POE_ST10267411_KhumaloCraft.Models.AdminViewModel
+
+@{
+    ViewData["Title"] = "Admin Dashboard";
+}
+
+<h2>Admin Dashboard</h2>
+
+<ul class="nav nav-tabs" id="adminTabs" role="tablist">
+    <li class="nav-item">
+        <a class="nav-link active" id="users-tab" data-toggle="tab" href="#users" role="tab" aria-controls="users" aria-selected="true">Users</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" id="orders-tab" data-toggle="tab" href="#orders" role="tab" aria-controls="orders" aria-selected="false">Orders</a>
+    </li>
+</ul>
+
+<div class="tab-content" id="adminTabsContent">
+    <div class="tab-pane fade show active" id="users" role="tabpanel" aria-labelledby="users-tab">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var user in Model.Users)
+                {
+                    <tr>
+                        <td>@user.UserID</td>
+                        <td>@user.UserName</td>
+                        <td>@user.Email</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <div class="tab-pane fade" id="orders" role="tabpanel" aria-labelledby="orders-tab">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Order ID</th>
+                    <th>User</th>
+                    <th>Order Date</th>
+                    <th>Products</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var order in Model.Orders)
+                {
+                    <tr>
+                        <td>@order.OrderID</td>
+                        <td>@order.User.UserName</td>
+                        <td>@order.OrderDate.ToString("g")</td>
+                        <td>
+                            <ul>
+                                @foreach (var item in order.OrderDetails)
+                                {
+                                    <li>@item.Product.ProductName - @item.Quantity x @item.Product.Price.ToString("C")</li>
+                                }
+                            </ul>
+                        </td>
+                        <td>@order.OrderDetails.Sum(od => od.TotalPrice).ToString("C")</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            $('#adminTabs a').on('click', function (e) {
+                e.preventDefault();
+                $(this).tab('show');
+            });
+        });
+    </script>
+}

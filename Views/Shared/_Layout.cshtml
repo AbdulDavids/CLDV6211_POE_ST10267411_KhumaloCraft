@@ -25,7 +25,7 @@
                         <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Products" asp-action="Index">My Work</a>
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Product" asp-action="Index">My Work</a>
                     </li>
 
                     <li class="nav-item">
@@ -35,6 +35,17 @@
                     <li class="nav-item">
                         <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="About">About Us</a>
                     </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Login" asp-action="Index">Login</a>
+                    </li>
+
+                        @if (Context.Session.GetString("UserName") == "admin")
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link" asp-area="" asp-controller="Admin" asp-action="Index">Admin</a>
+                            </li>
+                        }
                 </ul>
             </div>
         </div>
